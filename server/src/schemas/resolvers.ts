@@ -2,6 +2,7 @@ import { AuthenticationError } from "apollo-server-express";
 import { User, Adventure, StoryNode } from "../models/index.js";
 import { signToken } from "../utils/auth.js";
 import { Types } from "mongoose";
+import { generateStoryNode } from "../utils/openai.js";
 
 const resolvers = {
 
@@ -79,7 +80,7 @@ const resolvers = {
       Please provide the next story node text and choices.`;
 
       // PLacecholder for AI function
-      const aiResponseText = 'Something happens... AI'; 
+      const aiResponseText = await generateStoryNode(prompt); 
       //TODO: Call OpenAI function here
 
       const nextNode = await StoryNode.create({

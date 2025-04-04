@@ -46,11 +46,13 @@ const resolvers = {
       return { token, user };
     },
 
-    createAdventure: async (_parent: any, { title }: any, context: any) => {
+    createAdventure: async (_parent: any, { title, characterName, characterClass }: any, context: any) => {
       if (!context.user) throw new AuthenticationError('Not logged in');
 
       const adventure = await Adventure.create({
         title,
+        characterName,
+        characterClass,
         userId: context.user._id,
         storyLog: [],
       });

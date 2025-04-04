@@ -11,6 +11,8 @@ const typeDefs = gql`
     _id: ID!
     title: String!
     userId: ID!
+    characterName: String!
+    characterClass: String!
     currentNode: StoryNode
     storyLog: [StoryNode]
     createdAt: String
@@ -45,7 +47,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createUser(username: String!, email: String!, password: String!): Auth
 
-    createAdventure(title: String!): Adventure
+    createAdventure(title: String!, characterName: String!, characterClass: String!): Adventure
     advanceAdventure(adventureId: ID!, choiceText: String!): Adventure
 
     addStoryNode(text: String!, choices: [ChoiceInput!]!): StoryNode

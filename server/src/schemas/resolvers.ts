@@ -1,64 +1,64 @@
-import { Thought } from '../models/index.js';
-
-// Define types for the arguments
-interface ThoughtArgs {
-  thoughtId: string;
-}
-
-interface AddThoughtArgs {
-  input:{
-    thoughtText: string;
-    thoughtAuthor: string;
-  }
-}
-
-interface AddCommentArgs {
-  thoughtId: string;
-  commentText: string;
-}
-
-interface RemoveCommentArgs {
-  thoughtId: string;
-  commentId: string;
-}
+import { AuthenticationError } from "apollo-server-express";
+import { User, Adventure, StoryNode } from "../models/index.js";
+import { signToken } from "../utils/auth.js";
 
 const resolvers = {
+
   Query: {
-    thoughts: async () => {
-      return await Thought.find().sort({ createdAt: -1 });
+    me: async (_parent: any, _args: any, context: any) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in');
+      }
+      return await User.findById(context.user._id);
     },
-    thought: async (_parent: unknown, { thoughtId }: ThoughtArgs) => {
-      return await Thought.findOne({ _id: thoughtId });
+
+    getAdventure: async (_parent: any, { id }: { id: string }) => {
+      return await Adventure.findById(id).populate('currentNode storyLog');
+    },
+
+    myAdventures: async (_parent: any, _args: any, context: any) => {
+      if (!context.user) {
+        throw new AuthenticationError('Not logged in');
+      }
+      return await Adventure.find({ userId: context.user._id }).populate('currentNode storyLog');
+    },
+
+    getStoryNode: async (_parent: any, { id }: { id: string }) => {
+      return await StoryNode.findById(id);
     },
   },
+
   Mutation: {
-    addThought: async (_parent: unknown, { input }: AddThoughtArgs) => {
-        const thought = await Thought.create({ ...input });
-        return thought;
+    createUser: async (_parent: any, { username, email, password }: any) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
     },
-    addComment: async (_parent: unknown, { thoughtId, commentText }: AddCommentArgs) => {
-      return await Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        {
-          $addToSet: { comments: { commentText } },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+
+    login: async (_parent: any, { email, password }: any) => {
+      const user = await User.findOne({ email });
+      if (!user) throw new AuthenticationError('No user found with this email');
+
+      const validPw = await user.isCorrectPassword(password);
+      if (!validPw) throw new AuthenticationError('Incorrect password');
+
+      const token = signToken(user);
+      return { token, user };
     },
-    removeThought: async (_parent: unknown, { thoughtId }: ThoughtArgs) => {
-      return await Thought.findOneAndDelete({ _id: thoughtId });
+
+    createAdventure: async (_parent: any, { title, characterName, characterClass }: any, context: any) => {
+      if (!context.user) throw new AuthenticationError('Not logged in');
+
+      const adventure = await Adventure.create({
+        title,
+        characterName,
+        characterClass,
+        userId: context.user._id,
+        storyLog: [],
+      });
+      return adventure;
     },
-    removeComment: async (_parent: unknown, { thoughtId, commentId }: RemoveCommentArgs) => {
-      return await Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        { $pull: { comments: { _id: commentId } } },
-        { new: true }
-      );
-    },
-  },
-};
+  }
+}
 
 export default resolvers;

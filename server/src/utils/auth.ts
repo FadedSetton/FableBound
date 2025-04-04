@@ -27,7 +27,7 @@ export const authMiddleware = ({ req }: { req: Request }) => {
 
     try {
         const decoded = jwt.verify(token, secret) as Payload;
-        (req as any).user = decoded;
+        (req as any).user = (decoded as any).data;
     }catch (err) {
         console.error('Invalid token', err);
         throw new AuthenticationError('Invalid token');

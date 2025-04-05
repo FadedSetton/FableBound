@@ -1,6 +1,8 @@
 import { AuthenticationError } from "apollo-server-express";
 import { User, Adventure, StoryNode } from "../models/index.js";
 import { signToken } from "../utils/auth.js";
+import { Types } from "mongoose";
+import { generateStoryNode } from "../utils/openai.js";
 
 const resolvers = {
 
@@ -58,6 +60,47 @@ const resolvers = {
       });
       return adventure;
     },
+    advanceAdventure: async (_parent: any, { adventureId, choiceText }: any, context: any) => {
+      if (!context.user) throw new AuthenticationError('Not logged in');
+
+      const adventure = await Adventure.findById(adventureId).populate('currentNode');
+      if (!adventure) throw new Error('Adventure not found');
+
+      if (!adventure.currentNode) {
+        throw new Error('Adventure has no current node');
+      }
+
+      const currentNode = await StoryNode.findById(adventure.currentNode);
+      if (!currentNode) throw new Error('Current node not found');
+
+      //TODO clear up beginning prompt and function 
+      const prompt = `Welcome to FableBound a fantasy adventure game. Please select the start of your adventure based
+      on the following choices: ${currentNode.text} 
+      Player chose ${choiceText}.
+      Please provide the next story node text and choices.`;
+
+      // PLacecholder for AI function
+      const aiResponseText = await generateStoryNode(prompt); 
+      //TODO: Call OpenAI function here
+
+      const nextNode = await StoryNode.create({
+        text: aiResponseText,
+        choices:[
+          { text: 'Attack' },
+          { text: 'Run' },
+          { text: 'Talk' },
+          { text: 'Inspect' },
+        ],
+        isAI: true,
+      });
+
+      adventure.storyLog.push(adventure.currentNode);
+      adventure.currentNode = nextNode._id as Types.ObjectId;
+
+      await adventure.save();
+      return adventure.populate('currentNode storyLog');
+    },
+
   }
 }
 

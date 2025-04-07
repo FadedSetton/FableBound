@@ -1,33 +1,60 @@
-const typeDefs = `
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
+import { gql } from 'apollo-server-express';
+const typeDefs = gql `
+  type User {
+    _id: ID!
+    username: String!
+    email: String!
   }
 
-  type Comment {
-    _id: ID
-    commentText: String
+  type Adventure {
+    _id: ID!
+    title: String!
+    userId: ID!
+    characterName: String!
+    characterClass: String!
+    currentNode: StoryNode
+    storyLog: [StoryNode]
     createdAt: String
   }
 
-  input ThoughtInput {
-    thoughtText: String!
-    thoughtAuthor: String!
+  type StoryNode {
+    _id: ID!
+    text: String!
+    choices: [Choice!]!
+    isAI: Boolean!
+    createdAt: String
+  }
+
+  type Choice {
+    text: String!
+    nextNode: ID
+  }
+
+  type Auth {
+    token: ID!
+    user: User!
   }
 
   type Query {
-    thoughts: [Thought]!
-    thought(thoughtId: ID!): Thought
+    me: User
+    getAdventure(id: ID!): Adventure
+    myAdventures: [Adventure]
+    getStoryNode(id: ID!): StoryNode
   }
 
   type Mutation {
-    addThought(input: ThoughtInput!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    login(email: String!, password: String!): Auth
+    createUser(username: String!, email: String!, password: String!): Auth
+
+    createAdventure(title: String!, characterName: String!, characterClass: String!): Adventure
+    advanceAdventure(adventureId: ID!, choiceText: String!): Adventure
+
+    addStoryNode(text: String!, choices: [ChoiceInput!]!): StoryNode
+  }
+
+  input ChoiceInput {
+    text: String!
+    nextNode: ID
   }
 `;
 export default typeDefs;

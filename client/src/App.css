@@ -1,74 +1,206 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* ==========================================================================
+   Root Variables & Global Defaults
+   ========================================================================== */
+   :root {
+    /* Base typography and smoothing */
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Default colors (can be overridden in media queries) */
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-body {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: #36445a;
-  color: #caa982;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-h1, h2, h3 {
-  color: #caa982;
-  text-shadow: 0 0 5px #caa982;
-}
-
-p {
-  line-height: 1.6;
-}
-
-a {
-  color: #caa982;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-input, button {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: black;
-  color: #caa982;
-  border: 1px solid #182029;
-  padding: 5px;
-}
-
-input:focus, button:focus {
-  outline: none;
-  box-shadow: 0 0 5px #caa982;
-}
-
-button:hover {
-  background-color: #caa982;
-  color: black;
-}
-
-hr {
-  border: 1px solid #caa982;
-}
+  
+  /* ==========================================================================
+     Global Element Resets & Base Styles
+     ========================================================================== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* Combined styles: using Courier New for a retro feel */
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #36445a;
+    color: #caa982;
+    min-width: 320px;
+    min-height: 100vh;
+    /* Center the #root container if desired */
+    display: flex;
+    place-items: center;
+  }
+  
+  /* Link Styles */
+  a {
+    font-weight: 500;
+    color: #caa982;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #15ff00;
+    text-decoration: underline;
+  }
+  
+  /* Headings */
+  h1, h2, h3 {
+    color: #caa982;
+    text-shadow: 0 0 5px #caa982;
+  }
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+  
+  /* Root Container */
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Container for content blocks */
+  .container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Card & Read-the-Docs */
+  .card {
+    padding: 2em;
+  }
+  .read-the-docs {
+    color: #888;
+  }
+  
+  /* ==========================================================================
+     Layout Styles for the Story App
+     ========================================================================== */
+  .layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sidebar {
+    flex-shrink: 0;
+    width: 250px;
+  }
+  
+  .sidebar img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .content {
+    max-width: 800px;
+    flex: 1;
+    text-align: left;
+  }
+  
+  .story-text {
+    padding: 1rem;
+    border: 1px solid #182029;
+    background-color: #36445a;
+    margin-bottom: 1rem;
+  }
+  
+  .story-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* ==========================================================================
+     Form Elements & Button Styling
+     ========================================================================== */
+  input,
+  button {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: #caa982;
+    border: 1px solid #182029;
+    padding: 5px;
+  }
+  
+  input:focus,
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #caa982;
+  }
+  
+  button {
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    background-color: #caa982;
+    color: black;
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  /* Horizontal Rule */
+  hr {
+    border: 1px solid #caa982;
+  }
+  
+  /* ==========================================================================
+     Media Queries
+     ========================================================================== */
+  
+  /* Adjust layout for smaller screens */
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+      align-items: center;
+    }
+    .sidebar {
+      order: -1;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .content {
+      width: 100%;
+    }
+  }
+  
+  /* Handle reduced motion for animations */
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  /* Adjust colors for light mode */
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  

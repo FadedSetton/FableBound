@@ -7,8 +7,6 @@ import App from './App'
 import Home from './pages/Home'
 import SingleThought from './pages/SingleThought'
 import Error from './pages/Error'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
 import NewAdventure from './pages/NewAdventure'
 
 // set graphql API endpoint
@@ -44,14 +42,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-      },
-      {
-        path: '/login',
-        element: <Login />,
-      },
-      {
-        path: '/signup',
-        element: <Signup />,
       },
       {
         path: '/new-adventure',

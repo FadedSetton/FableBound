@@ -10,6 +10,17 @@ const adventureSchema = new Schema({
         ref: 'User',
         required: true
     },
+    characterName: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    characterClass: {
+        type: String,
+        required: true,
+        enum: ['Warrior', 'Mage', 'Rogue', 'Rangere'],
+        trim: true,
+    },
     createdAt: {
         type: Date,
         default: Date.now

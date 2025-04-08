@@ -10,6 +10,7 @@ node_modules
 
 # production
 /build
+dist
 
 # misc
 .DS_Store
@@ -22,3 +23,10 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+server/dist/models/index.js
+.gitignore
+server/dist/models/index.js
+server/dist/schemas/resolvers.js
+server/dist/schemas/typeDefs.js
+server/dist/seeds/cleanDB.js
+server/dist/seeds/seed.js

@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const CREATE_ADEVENTURE = gql`
+export const CREATE_ADVENTURE = gql`
   mutation createAdventure{
     createAdventure(input: $input) {
       _id

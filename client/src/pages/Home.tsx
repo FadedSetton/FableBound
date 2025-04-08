@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
-import { CREATE_ADEVENTURE } from "../utils/mutations";
+import { CREATE_ADVENTURE } from "../utils/mutations";
 
 const Home: React.FC = () => {
-  const [createAdventure, { error }] = useMutation(CREATE_ADEVENTURE);
+  const [createAdventure, { error }] = useMutation(CREATE_ADVENTURE);
   const handleClick = async() => {
     await createAdventure()
   }

@@ -35,6 +35,7 @@ const Login: React.FC = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation<LoginData, LoginVars>(LOGIN_MUTATION, {
     onCompleted: (data) => {
+      console.log('Login successful', data);
       localStorage.setItem('id_token', data.login.token);
       navigate('/');
     },

@@ -1,0 +1,13 @@
+// src/components/Home.tsx
+import React from 'react';
+
+const Home: React.FC = () => {
+  return (
+    <div>
+      <h1>Welcome to FableBound</h1>
+      <p>A fantasy adventure game. Please login or sign up to start your journey.</p>
+    </div>
+  );
+};
+
+export default Home;

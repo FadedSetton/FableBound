@@ -1,36 +1,26 @@
-import { useQuery } from '@apollo/client';
+import { useMutation } from "@apollo/client";
+import { CREATE_ADEVENTURE } from "../utils/mutations";
 
-import ThoughtList from '../components/ThoughtList/index.tsx';
-import ThoughtForm from '../components/ThoughtForm/index.tsx';
-
-import { QUERY_THOUGHTS } from '../utils/queries.ts';
-
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
-
+const Home: React.FC = () => {
+  const [createAdventure, { error }] = useMutation(CREATE_ADEVENTURE);
+  const handleClick = async() => {
+    await createAdventure()
+  }
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
-      </div>
-    </main>
-  );
+    <>
+        {/* Add the image at the top */}
+        <img 
+            src="/assets/headerImage.png" // Ensure this path is correct and the image exists
+            alt="Pixel art medieval castle with trees and mountains as background retro style 8-bit game AI generated image" 
+            style={{ width: '100%', height: 'auto' }} 
+        />
+        <h1>FableBound</h1>
+        <button onClick={handleClick}>Start your journey!</button>
+        <p>
+            "I am not afraid of storms, for I am learning how to sail my ship." - Louisa May Alcott, <em>Little Women</em>
+        </p>
+    </>
+);
 };
 
 export default Home;

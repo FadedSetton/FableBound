@@ -1,5 +1,6 @@
 import express from 'express';
 import db from './config/connection.js';
+import { authMiddleware } from './utils/auth.js';
 // Import the ApolloServer class
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
@@ -17,7 +18,9 @@ const startApolloServer = async () => {
     const app = express();
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
-    app.use('/graphql', expressMiddleware(server));
+    app.use('/graphql', expressMiddleware(server, {
+        context: async ({ req }) => authMiddleware({ req }),
+    }));
     app.listen(PORT, () => {
         console.log(`API server running on port ${PORT}!`);
         console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);

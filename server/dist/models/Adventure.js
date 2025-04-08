@@ -18,7 +18,7 @@ const adventureSchema = new Schema({
     characterClass: {
         type: String,
         required: true,
-        enum: ['Warrior', 'Mage', 'Rogue', 'Rangere'],
+        enum: ['Warrior', 'Mage', 'Rogue', 'Ranger'],
         trim: true,
     },
     createdAt: {

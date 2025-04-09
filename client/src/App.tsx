@@ -21,7 +21,7 @@ const client = new ApolloClient({
 function App(): JSX.Element {
   return (
     <ApolloProvider client={client}>
-        <Router>
+       <Router>
         <Nav/>
         <div className="container">
           <Routes>

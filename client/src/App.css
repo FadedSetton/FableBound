@@ -363,6 +363,15 @@ body {
   color: #1a1a1a;
 }
 
+.reveal {
+  color: #0000;
+  background: linear-gradient(#36445A) no-repeat;
+  background-size: 0% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  animation: t 1.2s .5s both;
+}
+
 h1,
 h2,
 h3,

@@ -1,14 +1,14 @@
 import { gql } from '@apollo/client';
 
 
-export const CREATE_ADVENTURE = gql`
-  mutation createAdventure{
-    createAdventure(input: $input) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
+// export const CREATE_ADVENTURE = gql`
+//   mutation createAdventure{
+//     createAdventure(input: $input) {
+//       _id
+//       thoughtText
+//       thoughtAuthor
+//       createdAt
+//       comments {
 
 // Advance the adventure by sending a player's choice
 export const ADVANCE_ADVENTURE = gql`

@@ -114,7 +114,7 @@ const Adventure: React.FC = () => {
   const adventure = data.getAdventure;
   const { currentNode, storyLog } = adventure;
 
-  // Display intro story text (displayed if no progress has been made yet) - AJG
+  // Hard-coded intro story text (displayed if no progress has been made yet)
   const introStory = (
     <div style={{ border: '1px solid #182029', padding: '1rem', marginBottom: '1rem' }}>
       <h3>Intro</h3>

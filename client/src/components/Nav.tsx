@@ -1,26 +1,9 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+import NewAdventure from "../pages/NewAdventure";
 
 const Nav: React.FC = () => {
-  // Check if logged in, conditionally render link buttons - Ainsley
 
-  
-  // const [token, setToken] = useState(() => {
-  //   const storedData = localStorage.getItem('id_token');
-  //   return storedData ? storedData : null;
-  // });
-  // useEffect(() => {
-  //   const handleStorageChange = () => {
-  //     const storedData = localStorage.getItem('id_token');
-  //     setToken(storedData ? storedData : null);
-  //   };
-
-  //   window.addEventListener('storage', handleStorageChange);
-
-  //   return () => {
-  //     window.removeEventListener('storage', handleStorageChange);
-  //   };
-  // }, []);
 const token = localStorage.getItem('id_token');
 
     return (
@@ -28,7 +11,7 @@ const token = localStorage.getItem('id_token');
           | <Link to="/">Home</Link> |{' '}
           {!token && <Link to="/login">Login</Link>} |{' '}
           {!token && <Link to="/signup">Signup</Link>} |{' '}
-          <Link to="/adventure">Adventure</Link>
+            <Link to="/NewAdventure">Adventure</Link>
           {token && logOutButton()} |{' '}
         </nav>
     );

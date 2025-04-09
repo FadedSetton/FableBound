@@ -131,8 +131,8 @@
   input,
   button {
     font-family: 'Courier New', Courier, monospace;
-    background-color: black;
-    color: #caa982;
+    background-color: #caa982;
+    color: #182029;
     border: 1px solid #182029;
     padding: 5px;
   }

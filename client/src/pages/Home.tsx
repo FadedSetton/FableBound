@@ -1,5 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { CREATE_ADVENTURE } from "../utils/mutations";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   const [createAdventure, { error }] = useMutation(CREATE_ADVENTURE);
@@ -14,8 +15,12 @@ const Home: React.FC = () => {
             alt="Pixel art medieval castle with trees and mountains as background retro style 8-bit game AI generated image" 
             style={{ width: '100%', height: 'auto' }} 
         />
-        <h1>FableBound</h1>
-        <button onClick={handleClick}>Start your journey!</button>
+        {/* <button onClick={handleClick}>
+            <Link to="/adventure">Start your journey!</Link>
+        </button> */}
+        <Link to="/adventure">
+            <button onClick={handleClick}>Start your journey!</button>
+        </Link>
         <p>
             "A fantasy adventure game. Please login or sign up to start your journey." - Louisa May Alcott, <em>Little Women</em>
         </p>

@@ -37,7 +37,9 @@ const Login: React.FC = () => {
     onCompleted: (data) => {
       console.log('Login successful', data);
       localStorage.setItem('id_token', data.login.token);
-      navigate('/');
+      //auth.login, #26
+     // navigate('/');
+     window.location.assign('/');
     },
   });
 

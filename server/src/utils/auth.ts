@@ -23,6 +23,7 @@ export const authMiddleware = ({ req }: { req: Request }) => {
         token = token.slice(7).trim();
     }
 
+    console.log('THIS HERE??', req)
     if(!token) return req;
 
     try {

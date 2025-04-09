@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
-import { CREATE_ADEVENTURE } from "../utils/mutations";
+import { CREATE_ADVENTURE } from "../utils/mutations";
 
 const Home: React.FC = () => {
-  const [createAdventure, { error }] = useMutation(CREATE_ADEVENTURE);
+  const [createAdventure, { error }] = useMutation(CREATE_ADVENTURE);
   const handleClick = async() => {
     await createAdventure()
   }
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
         <h1>FableBound</h1>
         <button onClick={handleClick}>Start your journey!</button>
         <p>
-            "I am not afraid of storms, for I am learning how to sail my ship." - Louisa May Alcott, <em>Little Women</em>
+            "A fantasy adventure game. Please login or sign up to start your journey." - Louisa May Alcott, <em>Little Women</em>
         </p>
     </>
 );

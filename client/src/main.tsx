@@ -35,7 +35,7 @@ const client = new ApolloClient({
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <App/>,
     errorElement: <Error />,
     children: [
       {
@@ -46,10 +46,6 @@ const router = createBrowserRouter([
         path: '/new-adventure',
         element: <NewAdventure />,
       },
-      // {
-      //   path: '/thoughts/:thoughtId',
-      //   element: <SingleThought />,
-      // },
     ],
   },
 ]);
@@ -57,8 +53,6 @@ const router = createBrowserRouter([
 const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
-    <ApolloProvider client={client}>
-    <RouterProvider router={router} />
-    </ApolloProvider>
+    <App/>,
 );
 }

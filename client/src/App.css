@@ -1,6 +1,7 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-/* Document
+/* ==========================================================================
+   Root Variables & Global Defaults
    ========================================================================== */
+<<<<<<< HEAD
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -1345,373 +1346,208 @@ label form [type='radio'] {
   .col-sm-auto {
     flex-grow: 1;
     flex-basis: 0;
-  }
-  .col-sm-1 {
-    flex: 0 0 8.33333%;
-    max-width: 8.33333%;
-  }
-  .col-sm-2 {
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%;
-  }
-  .col-sm-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-  .col-sm-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-  }
-  .col-sm-5 {
-    flex: 0 0 41.66667%;
-    max-width: 41.66667%;
-  }
-  .col-sm-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  .col-sm-7 {
-    flex: 0 0 58.33333%;
-    max-width: 58.33333%;
-  }
-  .col-sm-8 {
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
-  }
-  .col-sm-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
-  }
-  .col-sm-10 {
-    flex: 0 0 83.33333%;
-    max-width: 83.33333%;
-  }
-  .col-sm-11 {
-    flex: 0 0 91.66667%;
-    max-width: 91.66667%;
-  }
-  .col-sm-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .justify-space-between-sm {
-    justify-content: space-between;
-  }
-  .justify-space-around-sm {
-    justify-content: space-around;
-  }
-  .justify-flex-start-sm {
-    justify-content: flex-start;
-  }
-  .justify-flex-end-sm {
-    justify-content: flex-end;
-  }
-  .justify-center-sm {
-    justify-content: center;
-  }
-  .align-start-sm {
-    align-items: flex-start;
-  }
-  .align-stretch-sm {
-    align-items: stretch;
-  }
-  .align-end-sm {
-    align-items: flex-end;
-  }
-  .align-center-sm {
-    align-items: center;
-  }
-  .align-content-start-sm {
-    align-content: flex-start;
-  }
-  .align-content-stretch-sm {
-    align-content: stretch;
-  }
-  .align-content-end-sm {
-    align-content: flex-end;
-  }
-  .align-content-center-sm {
-    align-content: center;
-  }
-}
 
-/* col-md */
-@media screen and (min-width: 768px) {
-  .col-md-auto {
-    flex-grow: 1;
-    flex-basis: 0;
-  }
-  .col-md-1 {
-    flex: 0 0 8.33333%;
-    max-width: 8.33333%;
-  }
-  .col-md-2 {
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%;
-  }
-  .col-md-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-  .col-md-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-  }
-  .col-md-5 {
-    flex: 0 0 41.66667%;
-    max-width: 41.66667%;
-  }
-  .col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  .col-md-7 {
-    flex: 0 0 58.33333%;
-    max-width: 58.33333%;
-  }
-  .col-md-8 {
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
-  }
-  .col-md-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
-  }
-  .col-md-10 {
-    flex: 0 0 83.33333%;
-    max-width: 83.33333%;
-  }
-  .col-md-11 {
-    flex: 0 0 91.66667%;
-    max-width: 91.66667%;
-  }
-  .col-md-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .justify-space-between-md {
-    justify-content: space-between;
-  }
-  .justify-space-around-md {
-    justify-content: space-around;
-  }
-  .justify-flex-start-md {
-    justify-content: flex-start;
-  }
-  .justify-flex-end-md {
-    justify-content: flex-end;
-  }
-  .justify-center-md {
-    justify-content: center;
-  }
-  .align-start-md {
-    align-items: flex-start;
-  }
-  .align-stretch-md {
-    align-items: stretch;
-  }
-  .align-end-md {
-    align-items: flex-end;
-  }
-  .align-center-md {
-    align-items: center;
-  }
-  .align-content-start-md {
-    align-content: flex-start;
-  }
-  .align-content-stretch-md {
-    align-content: stretch;
-  }
-  .align-content-end-md {
-    align-content: flex-end;
-  }
-  .align-content-center-md {
-    align-content: center;
-  }
-}
+   :root {
+    /* Base typography and smoothing */
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Default colors (can be overridden in media queries) */
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
 
-/* col-lg */
-@media screen and (min-width: 992px) {
-  .col-md-auto {
-    flex-grow: 1;
-    flex-basis: 0;
   }
-  .col-lg-1 {
-    flex: 0 0 8.33333%;
-    max-width: 8.33333%;
+  
+  /* ==========================================================================
+     Global Element Resets & Base Styles
+     ========================================================================== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  .col-lg-2 {
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%;
+  
+  body {
+    /* Combined styles: using Courier New for a retro feel */
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #36445a;
+    color: #caa982;
+    min-width: 320px;
+    min-height: 100vh;
+    /* Center the #root container if desired */
+    display: flex;
+    place-items: center;
   }
-  .col-lg-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+  
+  /* Link Styles */
+  a {
+    font-weight: 500;
+    color: #caa982;
+    text-decoration: none;
   }
-  .col-lg-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
+  a:hover {
+    color: #15ff00;
+    text-decoration: underline;
   }
-  .col-lg-5 {
-    flex: 0 0 41.66667%;
-    max-width: 41.66667%;
+  
+  /* Headings */
+  h1, h2, h3 {
+    color: #caa982;
+    text-shadow: 0 0 5px #caa982;
   }
-  .col-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
   }
-  .col-lg-7 {
-    flex: 0 0 58.33333%;
-    max-width: 58.33333%;
+  
+  /* Root Container */
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
   }
-  .col-lg-8 {
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
+  
+  /* Container for content blocks */
+  .container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
   }
-  .col-lg-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
+  
+  /* Card & Read-the-Docs */
+  .card {
+    padding: 2em;
   }
-  .col-lg-10 {
-    flex: 0 0 83.33333%;
-    max-width: 83.33333%;
+  .read-the-docs {
+    color: #888;
   }
-  .col-lg-11 {
-    flex: 0 0 91.66667%;
-    max-width: 91.66667%;
-  }
-  .col-lg-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .justify-space-between-lg {
-    justify-content: space-between;
-  }
-  .justify-space-around-lg {
-    justify-content: space-around;
-  }
-  .justify-flex-start-lg {
-    justify-content: flex-start;
-  }
-  .justify-flex-end-lg {
-    justify-content: flex-end;
-  }
-  .justify-center-lg {
-    justify-content: center;
-  }
-  .align-start-lg {
+  
+  /* ==========================================================================
+     Layout Styles for the Story App
+     ========================================================================== */
+  .layout {
+    display: flex;
+    flex-direction: row;
     align-items: flex-start;
-  }
-  .align-stretch-lg {
-    align-items: stretch;
-  }
-  .align-end-lg {
-    align-items: flex-end;
-  }
-  .align-center-lg {
-    align-items: center;
-  }
-  .align-content-start-lg {
-    align-content: flex-start;
-  }
-  .align-content-stretch-lg {
-    align-content: stretch;
-  }
-  .align-content-end-lg {
-    align-content: flex-end;
-  }
-  .align-content-center-lg {
-    align-content: center;
-  }
-}
-
-/* col-xl */
-@media screen and (min-width: 1200px) {
-  .col-xl-1 {
-    flex: 0 0 8.33333%;
-    max-width: 8.33333%;
-  }
-  .col-xl-2 {
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%;
-  }
-  .col-xl-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-  .col-xl-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-  }
-  .col-xl-5 {
-    flex: 0 0 41.66667%;
-    max-width: 41.66667%;
-  }
-  .col-xl-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  .col-xl-7 {
-    flex: 0 0 58.33333%;
-    max-width: 58.33333%;
-  }
-  .col-xl-8 {
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
-  }
-  .col-xl-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
-  }
-  .col-xl-10 {
-    flex: 0 0 83.33333%;
-    max-width: 83.33333%;
-  }
-  .col-xl-11 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .col-xl-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .justify-space-between-xl {
-    justify-content: space-between;
-  }
-  .justify-space-around-xl {
-    justify-content: space-around;
-  }
-  .justify-flex-start-xl {
-    justify-content: flex-start;
-  }
-  .justify-flex-end-xl {
-    justify-content: flex-end;
-  }
-  .justify-center-xl {
     justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
   }
-  .align-start-xl {
-    align-items: flex-start;
+  
+  .sidebar {
+    flex-shrink: 0;
+    width: 250px;
   }
-  .align-stretch-xl {
-    align-items: stretch;
+  
+  .sidebar img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
-  .align-end-xl {
-    align-items: flex-end;
+  
+  .content {
+    max-width: 800px;
+    flex: 1;
+    text-align: left;
   }
-  .align-center-xl {
-    align-items: center;
+  
+  .story-text {
+    padding: 1rem;
+    border: 1px solid #182029;
+    background-color: #36445a;
+    margin-bottom: 1rem;
   }
-  .align-content-start-xl {
-    align-content: flex-start;
+  
+  .story-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
   }
-  .align-content-stretch-xl {
-    align-content: stretch;
+  
+  /* ==========================================================================
+     Form Elements & Button Styling
+     ========================================================================== */
+  input,
+  button {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: #caa982;
+    border: 1px solid #182029;
+    padding: 5px;
   }
-  .align-content-end-xl {
-    align-content: flex-end;
+  
+  input:focus,
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #caa982;
   }
-  .align-content-center-xl {
-    align-content: center;
+  
+  button {
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.25s;
   }
-}
+  button:hover {
+    background-color: #caa982;
+    color: black;
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  /* Horizontal Rule */
+  hr {
+    border: 1px solid #caa982;
+  }
+  
+  /* ==========================================================================
+     Media Queries
+     ========================================================================== */
+  
+  /* Adjust layout for smaller screens */
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+      align-items: center;
+    }
+    .sidebar {
+      order: -1;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .content {
+      width: 100%;
+    }
+  }
+  
+  /* Handle reduced motion for animations */
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  /* Adjust colors for light mode */
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  

@@ -1,6 +1,7 @@
 // src/components/Adventure.tsx
 import React from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
+import { useParams } from 'react-router-dom';
 
 interface StoryNode {
   _id: string;
@@ -87,7 +88,7 @@ const ADVANCE_ADVENTURE_MUTATION = gql`
 
 const Adventure: React.FC = () => {
   // Replace this with your dynamic ID or selection logic
-  const adventureId = "YOUR_ADVENTURE_ID";
+  const adventureId = useParams<{ id: string }>().id || '';
   const { loading, error, data, refetch } = useQuery<AdventureData, AdventureVars>(
     GET_ADVENTURE_QUERY,
     {
@@ -109,7 +110,7 @@ const Adventure: React.FC = () => {
   };
 
   if (loading) return <p>Loading adventure...</p>;
-  if (error || !data) return <p>Error loading adventure!</p>;
+  if (error) return <p>Error loading adventure!</p>;
 
   const adventure = data.getAdventure;
   const { currentNode, storyLog } = adventure;
@@ -139,7 +140,7 @@ const Adventure: React.FC = () => {
   );
 
   return (
-    <div>
+    <section>
       <h2>{adventure.title}</h2>
 
       {/* Conditionally display the intro story if the adventure has just begun */}
@@ -152,14 +153,14 @@ const Adventure: React.FC = () => {
         </div>
       )}
 
-      <div>
+      {/* <div>
         {currentNode.choices.map((choice, index) => (
           <button key={index} onClick={() => handleChoice(choice.text)}>
             {choice.text}
           </button>
         ))}
-      </div>
-    </div>
+      </div> */}
+    </section>
   );
 };
 

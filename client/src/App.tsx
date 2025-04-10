@@ -1,5 +1,3 @@
-// src/App.tsx
-//import React from "react";
 import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import {

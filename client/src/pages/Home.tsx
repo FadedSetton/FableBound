@@ -21,6 +21,13 @@ const Home: React.FC = () => {
         <Link to="/adventure">
             <button onClick={handleClick}>Start your journey!</button>
         </Link>
+
+        
+        {error && (
+            <p style={{ color: "red", marginTop: "1rem" }}>
+            {error.message}
+            </p>
+         )}
         <p>
             "A fantasy adventure game. Please login or sign up to start your journey." - Louisa May Alcott, <em>Little Women</em>
         </p>

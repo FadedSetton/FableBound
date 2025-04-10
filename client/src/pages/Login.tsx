@@ -49,7 +49,15 @@ const Login: React.FC = () => {
   };
 
   return (
+    <>
+    {/* Add the image at the top */}
+    <img 
+        src="/assets/headerImage.png" // Ensure this path is correct and the image exists
+        alt="Pixel art medieval castle with trees and mountains as background retro style 8-bit game AI generated image" 
+        style={{ width: '100%', height: 'auto' }} 
+    />
     <div>
+      
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -72,6 +80,7 @@ const Login: React.FC = () => {
       </form>
       {error && <p>Error logging in! Please check your credentials.</p>}
     </div>
+    </>
   );
 };
 

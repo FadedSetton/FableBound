@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
-import NewAdventure from "../pages/NewAdventure";
+//import React, { useState, useEffect } from 'react';
+//import NewAdventure from "../pages/NewAdventure";
 
 const Nav: React.FC = () => {
 

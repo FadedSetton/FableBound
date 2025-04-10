@@ -1,7 +1,7 @@
 // src/components/Login.tsx
 import React, { useState, FormEvent } from 'react';
 import { useMutation, gql } from '@apollo/client';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 interface LoginData {
   login: {
@@ -31,7 +31,7 @@ const LOGIN_MUTATION = gql`
 `;
 
 const Login: React.FC = () => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation<LoginData, LoginVars>(LOGIN_MUTATION, {
     onCompleted: (data) => {

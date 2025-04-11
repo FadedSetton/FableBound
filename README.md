@@ -10,7 +10,13 @@
 
 ##  ScreenShots
 
- [Img](imgfile)
+ ![FableBound-Home](./assets/FableBound-Home.png)
+ 
+ ![FableBound-Intro](./assets/FableBound-Intro.png)
+ ![FableBound-Login](./assets/FableBound-login.png)
+ ![FableBound-Signup](./assets/FableBound-Signup.png)
+ ![FableBound-CharacterCreate](./assets/FableBound-CreateCharacter.png)
+
 
 ---
 

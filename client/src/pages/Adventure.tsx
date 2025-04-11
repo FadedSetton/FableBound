@@ -151,13 +151,15 @@ const Adventure: React.FC = () => {
             <p>{currentNode.text}</p>
           </div>
 
-      {/* <div>
-        {currentNode.choices.map((choice, index) => (
-          <button key={index} onClick={() => handleChoice(choice.text)}>
-            {choice.text}
-          </button>
-        ))}
-      </div> */}
+          <div>
+            {currentNode.choices.map((choice, index) => (
+              <button key={index} onClick={() => handleChoice(choice.text)}>
+                {choice.text}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </section>
   );
 };

@@ -1,14 +1,16 @@
-
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_ADVENTURE } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom';
 
 export default function NewAdventure() {
+  const currentNode = useParams<{ id: string }>().id || '';
     const [ formState, setFormState ] = useState({
        title: '',
        characterName: '',
-       characterClass: 'Warrior' 
+       characterClass: 'Warrior',
+        currentNode: currentNode,
     })
 
     const [ createAdventure, { error } ] = useMutation(CREATE_ADVENTURE);

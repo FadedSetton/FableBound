@@ -29,7 +29,7 @@ const Home: React.FC = () => {
             </p>
          )}
         <p>
-            "A fantasy adventure game. Please login or sign up to start your journey." - Louisa May Alcott, <em>Little Women</em>
+            Join the <em>newest</em> choose your own adventure game! Please login or sign up to start your journey!
         </p>
     </>
 );

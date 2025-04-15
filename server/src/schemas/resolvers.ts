@@ -57,6 +57,7 @@ const resolvers = {
         characterClass,
         userId: context.user._id,
         storyLog: [],
+ //       currentNode: ,
       });
       return adventure;
     },
@@ -65,6 +66,8 @@ const resolvers = {
 
       const adventure = await Adventure.findById(adventureId).populate('currentNode');
       if (!adventure) throw new Error('Adventure not found');
+
+    //  adventure.currentNode = adventureId;
 
       if (!adventure.currentNode) {
         throw new Error('Adventure has no current node');

@@ -1,0 +1,9 @@
+{
+    "choices": [
+      { "text": "Venture into the Darkwood Forest" },
+      { "text": "Stay in Grendale and gather supplies" },
+      { "text": "Consult the village elder for guidance" }
+    ],
+    "text": "<div class=\"story-text\">\n  <h3>Intro</h3>\n  <p>\n    In the shadowed realm of Eldoria, where the skies often weep with the\n    sorrow of forgotten gods, the small village of Grendale hums with the\n    promise of adventure. Nestled at the edge of the foreboding Darkwood\n    Forest, the villagers speak in hushed tones about the recent\n    disappearances of several of their own. Ancient tales, once mere\n    bedtime stories to frighten children, now stir in the hearts of the\n    bravest souls. The legends tell of the Heartstone, a mystical gem said\n    to wield the power to bind or free the ancient spirits of the land,\n    buried deep within the labyrinthine heart of Darkwood.\n  </p>\n  <p>\n    As night falls, a mysterious figure draped in a hooded cloak\n    approaches you at the local tavern. With a voice as soft as falling\n    leaves, the stranger offers a tattered map, marked with the path\n    through Darkwood to where the Heartstone lies hidden. \"The journey is\n    perilous, and many have faltered in their quests,\" the figure\n    whispers, eyes glinting with a mix of fear and excitement. \"But should\n    you retrieve the Heartstone, glory and the gratitude of Eldoria shall\n    be yours. Will you venture into the shadows to uncover the truths long\n    buried, or will you remain here, content to wonder and never know?\"\n  </p>\n</div>"
+  }
+  

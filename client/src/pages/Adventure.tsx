@@ -113,14 +113,16 @@ const Adventure: React.FC = () => {
   if (loading) return <p>Loading adventure...</p>;
   if (error) return <p>Error loading adventure!</p>;
 
-  const adventure = data.getAdventure;
+  //const adventure = data.getAdventure;
+  const adventure = data!.getAdventure;
+
   let { currentNode, storyLog } = adventure;
-  let introStory = {
+  const introStory: StoryNode = {
     _id: "0",
     choices: [
       { text: "Venture into the Darkwood Forest" },
       { text: "Stay in Grendale and gather supplies" },
-      { text: "Consult the village elder for guidance" },
+      { text: "Consult the village elder for guidance" }
     ],
     text: 'Intro\n\nIn the shadowed realm of Eldoria, where the skies often weep with the sorrow of forgotten gods, the small village of Grendale hums with the promise of adventure. Nestled at the edge of the foreboding Darkwood Forest, the villagers speak in hushed tones about the recent disappearances of several of their own. Ancient tales, once mere bedtime stories to frighten children, now stir in the hearts of the bravest souls. The legends tell of the Heartstone, a mystical gem said to wield the power to bind or free the ancient spirits of the land, buried deep within the labyrinthine heart of Darkwood.\n\nAs night falls, a mysterious figure draped in a hooded cloak approaches you at the local tavern. With a voice as soft as falling leaves, the stranger offers a tattered map, marked with the path through Darkwood to where the Heartstone lies hidden. "The journey is perilous, and many have faltered in their quests," the figure whispers, eyes glinting with a mix of fear and excitement. "But should you retrieve the Heartstone, glory and the gratitude of Eldoria shall be yours. Will you venture into the shadows to uncover the truths long buried, or will you remain here, content to wonder and never know?"',
   };

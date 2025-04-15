@@ -93,9 +93,10 @@ const Adventure: React.FC = () => {
     GET_ADVENTURE_QUERY,
     {
       variables: { id: adventureId },
-      fetchPolicy: 'network-only'
+      //fetchPolicy: 'network-only'
     }
   );
+  console.log(data, adventureId);
   const [advanceAdventure] = useMutation<AdvanceAdventureData, AdvanceAdventureVars>(
     ADVANCE_ADVENTURE_MUTATION
   );
@@ -114,7 +115,7 @@ const Adventure: React.FC = () => {
 
   const adventure = data.getAdventure;
   let { currentNode, storyLog } = adventure;
-  const introStory = {
+  let introStory = {
     _id: "0",
     choices: [
       { text: "Venture into the Darkwood Forest" },
